@@ -6,14 +6,14 @@ import React from 'react'
 
 const Product = async () => {
     const fetchProduct = async () => {
-        let res = await axios.get(`http://localhost:8000/products/all`);
+        let res = await axios.get(`https://dummyjson.com/products`);
         return res
     };
     let apiResponse = await fetchProduct();
     return (
         <div>
             {
-                apiResponse.data.map((prod: any, index: number) => {
+                apiResponse.data.products.map((prod: any, index: number) => {
                     return <Link href={`/product/${prod._id}`} key={index}>
                         <Image
                             src={prod.thumbnail}
