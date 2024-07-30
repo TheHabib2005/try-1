@@ -6,14 +6,21 @@ import React from 'react'
 
 const Product = async () => {
     const fetchProduct = async () => {
-        let res = await axios.get(`https://dummyjson.com/products`);
-        return res
+        let res = await fetch(`${process.env.API_URL}/products/all`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: "include"
+        })
+        let data = await res.json()
+        return data;
     };
     let apiResponse = await fetchProduct();
     return (
         <div>
             {
-                apiResponse.data.products.map((prod: any, index: number) => {
+                apiResponse.map((prod: any, index: number) => {
                     return <Link href={`/product/${prod._id}`} key={index}>
                         <Image
                             src={prod.thumbnail}
