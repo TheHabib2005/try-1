@@ -2,7 +2,7 @@ import axios from 'axios';
 import Image from 'next/image';
 import React from 'react'
 
-const page = async ({ params }: { params: any }) => {
+const SingleProduct = async ({ params }: { params: any }) => {
 
     const fetchProduct = async () => {
         let res = await axios.get(`http://localhost:8000/products/${params.id}`);
@@ -29,4 +29,4 @@ const page = async ({ params }: { params: any }) => {
     )
 }
 
-export default page
+export default SingleProduct
