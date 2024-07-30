@@ -21,10 +21,10 @@ const page = async ({ params }: { params: any }) => {
             <Image
                 width={300}
                 height={300}
-                src={apiResponse.data[0].thumbnail}
-                alt={apiResponse.data[0].title}
+                src={apiResponse.data.thumbnail}
+                alt={apiResponse.data.title}
             />
-            <h1>{apiResponse.data[0].title}</h1>
+            <h1>{apiResponse.data.title}</h1>
         </div>
     )
 }
