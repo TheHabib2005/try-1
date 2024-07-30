@@ -8,14 +8,7 @@ const SingleProduct = async ({ params }: { params: any }) => {
         let res = await axios.get(`http://localhost:8000/products/${params.id}`);
         return res
     };
-
     let apiResponse = await fetchProduct();
-
-    if (apiResponse.status !== 200) {
-        return <h1>Error</h1>
-    }
-    console.log(apiResponse.data);
-
     return (
         <div>
             <Image

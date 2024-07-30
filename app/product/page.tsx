@@ -9,12 +9,7 @@ const Product = async () => {
         let res = await axios.get(`http://localhost:8000/products/all`);
         return res
     };
-
     let apiResponse = await fetchProduct();
-
-    if (apiResponse.status !== 200) {
-        return <h1>Error</h1>
-    }
     return (
         <div>
             {
