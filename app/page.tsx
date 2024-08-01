@@ -7,7 +7,7 @@ import React from 'react'
 
 const Product = async () => {
   const fetchProduct = async () => {
-    let res = await fetch(`http://localhost:8000/products/all`, {
+    let res = await fetch(`https://mern-24.onrender.com/products/all`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
