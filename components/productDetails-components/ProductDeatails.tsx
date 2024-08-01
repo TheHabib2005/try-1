@@ -3,7 +3,7 @@ import { calculateDiscountedPrice, delay, formatePrice } from '@/utils';
 import { FaRegHeart } from 'react-icons/fa6';
 import { IoMdStar, IoMdStarHalf } from 'react-icons/io';
 import { MdOutlineDiscount, MdOutlineShare } from 'react-icons/md';
-import { productData } from '@/data';
+
 import AddTocartButton from './AddTocartButton';
 import ProductTags from './ProductTags';
 import TabsWrapper from './TabsWrapper';
