@@ -1,5 +1,5 @@
 "use client"
-import { Product } from "@/utils/interfaces";
+
 import { useCartStore } from "@/zustant-store/useCartStore";
 import Link from "next/link";
 import React from "react";

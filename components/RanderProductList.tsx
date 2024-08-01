@@ -6,7 +6,7 @@ import { useSearchParams } from "next/navigation";
 import ProductCardSkeleton from "./ProductCardSkelection";
 import ProductCard from "./productCard";
 import Pagination from "./Pagination";
-import { productData } from "@/data";
+
 import ProductNotFound from "./Product-not-found";
 import Error from "./Error";
 import ProductsSkelection from "./ProductsSkelection";
