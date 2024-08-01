@@ -1,6 +1,6 @@
 "use client";
 
-import { Product } from "@/utils/interfaces";
+
 import { useGlobalTempState } from "@/zustant-store/globalTemporyStore";
 import { useCartStore } from "@/zustant-store/useCartStore";
 import Image from "next/image";

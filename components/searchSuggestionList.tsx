@@ -1,6 +1,6 @@
 import useHighLightText from "@/hooks/useHighLightText";
 import useSearchbar from "@/hooks/useSearchbar";
-import { Product } from "@/utils/interfaces";
+
 
 import React, { FC } from "react";
 
@@ -28,7 +28,7 @@ const SearchSuggestionList: FC<Iprops> = ({
             className="absolute w-full  bg-zinc-950 z-10 top-[100%] left-0 mt-2 p-2 rounded-lg"
             ref={containerRef}
         >
-            {list.slice(0, 10).map((item: Product, index) => {
+            {list.slice(0, 10).map((item: any, index) => {
                 return (
                     <div
                         className={`flex items-center mt-2 gap-2  transition-all duration-100 ease-linear p-2 cursor-pointer rounded-md ${currentActiveIndex === index
