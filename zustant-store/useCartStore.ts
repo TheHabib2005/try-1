@@ -1,5 +1,5 @@
 import { updateCartdb } from "@/utils";
-import { Product } from "@/utils/interfaces";
+
 import toast from "react-hot-toast";
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
@@ -50,7 +50,7 @@ export const useCartStore = create<CartItemType>()(
           set({ cart: updatedCart });
           set({
             totalAmount: updatedCart.reduce(
-              (acc: any, item: Product) => acc + item.quantity! * item.price,
+              (acc: any, item: any) => acc + item.quantity! * item.price,
               0
             ),
           });
