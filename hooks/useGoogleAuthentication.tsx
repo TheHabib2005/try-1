@@ -34,7 +34,7 @@ const useGoogleAuthentication = () => {
             if (data.success) {
                 toast.success(data.message);
 
-                window.location.href = "/";
+                // window.location.href = "/";
             }
 
         } catch (error) {
