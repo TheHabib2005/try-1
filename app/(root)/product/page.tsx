@@ -23,11 +23,11 @@ const Product = async () => {
     };
     let apiResponse = await fetchProduct();
     return (
-        <div className='grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-5 w-full'>
+        <div className='grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-3 w-full'>
             {
                 apiResponse.map((prod: any, index: number) => {
                     return <Link href={`/product/${prod._id}`} key={index}>
-                        <div className="mx-auto mt-11 w-80 transform overflow-hidden rounded-lg bg-white dark:bg-zinc-900/70 shadow-md duration-300 hover:scale-105 hover:shadow-lg">
+                        <div className="mx-auto mt-3 w-80 transform overflow-hidden rounded-lg bg-white dark:bg-zinc-900/70 shadow-md duration-300 hover:scale-105 hover:shadow-lg">
                             <img
                                 className="h-48 w-full object-cover object-center"
                                 src={prod.thumbnail}

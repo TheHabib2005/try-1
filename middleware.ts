@@ -2,16 +2,15 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
-  // const path = request.nextUrl.pathname;
-  // const token = request.cookies.get("auth-token")?.value || "";
-  // const isPublicPath =
-  //   path === "/sign-up" || path === "/login" || path === "/verify-email";
-  // if (isPublicPath && token) {
-  //   return NextResponse.redirect(new URL("/", request.nextUrl));
-  // }
-  // if (!isPublicPath && !token) {
-  //   return NextResponse.redirect(new URL("/sign-up", request.nextUrl));
-  // }
+  const path = request.nextUrl.pathname;
+  const token = request.cookies.get("auth-token")?.value || "";
+  const isPublicPath = path === "/sign-in";
+  if (isPublicPath && token) {
+    return NextResponse.redirect(new URL("/", request.nextUrl));
+  }
+  if (!isPublicPath && !token) {
+    return NextResponse.redirect(new URL("/sign-in", request.nextUrl));
+  }
 }
 
 export const config = {

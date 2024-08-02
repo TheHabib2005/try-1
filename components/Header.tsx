@@ -1,14 +1,14 @@
 "use client"
 import Link from 'next/link'
 
-import React from 'react'
+import React, { ReactNode } from 'react'
 import SearchBar from './searchBar'
 import UserAvater from './userAvater'
 import CartBar from './ShoppingCartBar'
 
 
 
-const Header = () => {
+const Header = ({ children }: { children: ReactNode }) => {
 
 
     return (
@@ -21,7 +21,7 @@ const Header = () => {
                 </div>
                 <div className=' w-1/3  mx-auto flex items-center '>
                     <Link href={"/"} className=''>
-                        <img src="/SLIDE-Photoroom.png" alt="" className='w-[200px]' />
+                        <img src="/logo.png" alt="" className='w-[200px]' />
                     </Link>
                     <div className=' xl:flex hidden items-center ml-5 gap-4 text-zinc-700 dark:text-zinc-400'>
                     </div>
@@ -30,7 +30,8 @@ const Header = () => {
                 <SearchBar className="w-1/3  relative md:block hidden" />
                 <div className=' md:w-1/3 flex-1 flex items-center gap-x-6 justify-end'>
 
-                    <UserAvater />
+
+                    {children}
 
 
                     {/* cart icon */}
