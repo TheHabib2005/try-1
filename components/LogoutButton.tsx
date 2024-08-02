@@ -3,6 +3,8 @@
 import { delay } from '@/utils';
 import React, { useState } from 'react'
 import toast from 'react-hot-toast';
+import { MdLogout } from 'react-icons/md';
+import { ClipLoader } from 'react-spinners';
 
 const LogoutButton = () => {
 
@@ -16,7 +18,7 @@ const LogoutButton = () => {
 
         try {
             setLoading(true);
-            let response = await fetch("http://localhost:8000/user/logout", {
+            let response = await fetch("http://localhost:8000/logout", {
                 credentials: "include"
             });
             let data = await response.json();
@@ -44,7 +46,8 @@ const LogoutButton = () => {
     };
 
     return (
-        <div className='p-3 bg-blue-600 text-white  w-[100px] mt-5 rounded-md cursor-pointer' onClick={handleLogin}>{loading ? "Loading..." : "Logout"}</div>
+        <button className='flex items-center justify-between w-full p-3 bg-zinc-800/70 rounded-md cursor-pointer' onClick={handleLogin}>LOGOUT {loading ? <ClipLoader size={25} color='#fff' /> : <MdLogout color='#2563EB' fontSize={20} />}</button>
+
     )
 }
 

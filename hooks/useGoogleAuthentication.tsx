@@ -29,12 +29,11 @@ const useGoogleAuthentication = () => {
                 setError({ error: true, message: data.message });
                 return;
             }
-            console.log(data);
-            await delay(3000);
+
             if (data.success) {
                 toast.success(data.message);
-
-                // window.location.href = "/";
+                await delay(1000);
+                window.location.href = "/";
             }
 
         } catch (error) {

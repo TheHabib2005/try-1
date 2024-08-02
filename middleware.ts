@@ -4,13 +4,10 @@ import type { NextRequest } from "next/server";
 import { setCookie } from "./actions";
 
 export function middleware(request: NextRequest) {
-  // let co = cookies();
   // const path = request.nextUrl.pathname;
   // const token = request.cookies.get("auth-token")?.value || "";
   // const isPublicPath = path === "/sign-in";
   // if (isPublicPath && token) {
-  //   // Redirect to home if already logged in
-  //   co.set("redirect", "qwerqweqw");
   //   return NextResponse.redirect(new URL("/", request.url));
   // }
   // if (!isPublicPath && !token) {

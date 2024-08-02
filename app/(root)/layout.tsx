@@ -4,6 +4,7 @@ import "../globals.css";
 import Header from "@/components/Header";
 import NextTopLoader from 'nextjs-toploader';
 import UserAvater from "@/components/userAvater";
+import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,18 +20,36 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} container mx-auto sm:px-0 px-4`}>
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+          toastOptions={{
+            // Define default options
+            className: '',
+            duration: 1500,
+            style: {
+              background: '#2563EB',
+              color: '#fff',
+            },
+            iconTheme: {
+              primary: "#000",
+              secondary: "green"
+            },
+
+            // Default options for specific types
+
+          }}
+        />
         <NextTopLoader
-          color="#2299DD"
+          color="#2563EB"
           initialPosition={0.08}
           crawlSpeed={200}
           height={3}
           crawl={true}
-          showSpinner={true}
+          showSpinner={false}
           easing="ease"
           speed={200}
           shadow="0 0 10px #2299DD,0 0 5px #2299DD"
-          template='<div class="bar" role="bar"><div class="peg"></div></div> 
-  <div class="spinner" role="spinner"><div class="spinner-icon"></div></div>'
           zIndex={1600}
           showAtBottom={false}
         />

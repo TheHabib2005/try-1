@@ -1,3 +1,4 @@
+import AddTocartButton from '@/components/productDetails-components/AddTocartButton';
 import { delay, formatePrice } from '@/utils';
 import axios from 'axios';
 import { Metadata } from 'next';
@@ -146,9 +147,7 @@ const SingleProduct = async ({ params }: { params: any }) => {
                             <span className="title-font font-medium text-2xl text-white">
                                 Tk {formatePrice(apiResponse.price)}.00
                             </span>
-                            <button className="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
-                                Add To cart
-                            </button>
+                            <AddTocartButton product={{ ...apiResponse, quantity: 1 }} />
 
                         </div>
                     </div>

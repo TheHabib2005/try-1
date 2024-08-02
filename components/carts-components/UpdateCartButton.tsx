@@ -19,11 +19,14 @@ const UpdateCartButton: FC<Props> = ({ disabled, payload, className, action, chi
 
     const handleClick = async () => {
         setIsLoading(true);
-        let data = await delay(1000);
+        let data = await delay(300);
         switch (action) {
             case "INCREMENT_QUANTITY":
                 incrementQuantity(payload)
                 toast.success("Cart Updated Successfully")
+                setTimeout(() => {
+                    alert("data updated successfully")
+                }, 9000)
                 break
             case "DECREMENT_QUANTITY":
                 decrementQuantity(payload)

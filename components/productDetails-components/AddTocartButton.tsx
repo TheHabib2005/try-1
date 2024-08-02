@@ -16,7 +16,7 @@ const AddTocartButton = ({ product }: { product: any }) => {
     const saveDb = async () => {
         setIsLoading(true);
         ProductaddToCart(payload);
-        let data = await delay(1000);
+        let data = await delay(300);
         setIsLoading(false);
         toast.success("product added successfully")
     }
