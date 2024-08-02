@@ -11,16 +11,14 @@ export const metadata: Metadata = {
 };
 const Product = async () => {
     const fetchProduct = async () => {
-        let res = await fetch(`https://mern-24.onrender.com/products/all`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            credentials: "include"
-        })
+        let res = await fetch(`https://mern-24.onrender.com/products/all`)
         let data = await res.json()
         return data;
     };
+
+
+
+
     let apiResponse = await fetchProduct();
     return (
         <div className='grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-3 w-full'>
