@@ -14,7 +14,7 @@ const useGoogleAuthentication = () => {
         setError({ error: false, message: "" });
         try {
             setLoading(true);
-            let response = await fetch("https://mern-24.onrender.com/user/google-login", {
+            let response = await fetch("http://localhost:8000/user/google-login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
