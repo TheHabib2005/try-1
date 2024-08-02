@@ -33,7 +33,7 @@ const useGoogleAuthentication = () => {
             if (data.success) {
                 toast.success(data.message);
                 await delay(1000);
-                window.location.href = "/";
+                window.location.href = "https://slidehub.vercel.app/product";
             }
 
         } catch (error) {
