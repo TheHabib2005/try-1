@@ -29,10 +29,11 @@ const useGoogleAuthentication = () => {
                 setError({ error: true, message: data.message });
                 return;
             }
-
+            console.log(data);
+            await delay(9000);
             if (data.success) {
                 toast.success(data.message);
-                await delay(1000);
+
                 window.location.href = "https://slidehub.vercel.app/product";
             }
 
