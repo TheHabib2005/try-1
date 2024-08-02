@@ -30,7 +30,7 @@ const useGoogleAuthentication = () => {
                 return;
             }
             console.log(data);
-            await delay(9000);
+            await delay(3000);
             if (data.success) {
                 toast.success(data.message);
 
