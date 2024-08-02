@@ -14,7 +14,7 @@ const useGoogleAuthentication = () => {
         setError({ error: false, message: "" });
         try {
             setLoading(true);
-            let response = await fetch("http://localhost:8000/user/google-login", {
+            let response = await fetch("https://mern-24.onrender.com/user/google-login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -33,7 +33,7 @@ const useGoogleAuthentication = () => {
             if (data.success) {
                 toast.success(data.message);
                 await delay(1000);
-                window.location.href = "/youtube";
+                window.location.href = "/";
             }
 
         } catch (error) {
@@ -49,7 +49,6 @@ const useGoogleAuthentication = () => {
 
 
     const getUserData = async (accessToken: string): Promise<any> => {
-        setLoading(true)
         const apiUrl = 'https://www.googleapis.com/oauth2/v3/userinfo';
         try {
             const response = await fetch(apiUrl, {
