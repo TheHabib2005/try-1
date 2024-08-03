@@ -19,7 +19,7 @@ const useSearchbar = () => {
     const fetchSearchData = async () => {
         let query = {}
         try {
-            let response = await fetch(`http://localhost:8000/products/data`, {
+            let response = await fetch(`https://mern-24.onrender.com/products/all`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
