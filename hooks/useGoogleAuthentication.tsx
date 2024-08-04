@@ -23,8 +23,8 @@ const useGoogleAuthentication = () => {
 
             if (response.data.success) {
                 toast.success(response.data.message);
-                // await delay(1000);
-                // window.location.href = "/";
+                await delay(1000);
+                window.location.href = "/";
             }
 
         } catch (error) {
