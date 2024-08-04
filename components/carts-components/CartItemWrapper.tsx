@@ -2,6 +2,7 @@
 import { useCartStore } from '@/zustant-store/useCartStore'
 import React from 'react'
 import CartItem from './CartItem'
+import { MdOutlineRemoveShoppingCart } from 'react-icons/md'
 
 const CartItemWrapper = () => {
 
@@ -10,15 +11,11 @@ const CartItemWrapper = () => {
     return (
         <>
             {
-                cart.length > 0 ? cart.map((product) => {
+                cart.map((product) => {
                     return (
                         <CartItem key={product.id} product={product} />
                     )
-                }) : <div>
-                    <div className='text-white font-semibold'>
-                        Your cart is empty
-                    </div>
-                </div>
+                })
             }
         </>
     )

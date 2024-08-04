@@ -10,7 +10,7 @@ const ProductReviews = ({ reviews }: { reviews: any[] }) => {
                 {
                     reviews.length > 0 ? reviews.map((review: any, index: number) => {
                         return <div key={index} className=' flex items-start  mt-5'>
-                            <div className='w-[70px]'><img src={"/reviewer-default-avater-imge.png"} alt="" className='w-[50px] object-contain' /></div>
+                            <div className='w-[70px]'><img src={"/profile-placeholder.png"} alt="" className='w-[50px] object-contain' /></div>
                             <div className='flex flex-col gap-3 text-white'>
                                 <div className='text-yellow-500 flex items-center text-xl'>
                                     {

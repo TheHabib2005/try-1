@@ -7,9 +7,6 @@ import UpdateCartButton from './UpdateCartButton';
 
 const CartItem = ({ product }: { product: any }) => {
 
-
-
-
     return (
         <div className="grid grid-cols-12 py-3 border-t border-neutral-800 items-center">
             <div className="md:col-span-8 col-span-6 text-center flex items-center gap-6">
@@ -33,7 +30,7 @@ const CartItem = ({ product }: { product: any }) => {
                         />
                     </svg>
                 </UpdateCartButton>
-                <div className='md:flex md:flex-row flex-col'>
+                <div className='md:flex md:flex-row flex-col gap-3'>
                     <div>
                         <img
                             src={product.thumbnail}

@@ -7,6 +7,8 @@ import UserAvater from './userAvater'
 import CartBar from './ShoppingCartBar'
 import { useCartStore } from '@/zustant-store/useCartStore'
 import { useGlobalTempState } from '@/zustant-store/globalTemporyStore'
+import { getToken, getUser } from '@/actions'
+import useGetUser from '@/hooks/useGetUser'
 
 
 
@@ -14,8 +16,16 @@ const Header = ({ children }: { children: ReactNode }) => {
 
     const { isCartBarOpen, setIsCartBarOpen } = useGlobalTempState()
 
+
+    const { userData } = useGetUser()
+
+
+    console.log(userData);
+
+
     return (
         <header className='py-6'>
+
             <div className='flex items-center justify-between '>
                 <div className='w-1/3 md:hidden block cursor-pointer '>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-7 dark:text-zinc-400">

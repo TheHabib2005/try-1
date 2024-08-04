@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import NextTopLoader from 'nextjs-toploader';
 import UserAvater from "@/components/userAvater";
 import { Toaster } from "react-hot-toast";
+import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -57,7 +58,7 @@ export default function RootLayout({
           <UserAvater />
         </Header>
         {children}
-
+        <Footer />
       </body>
     </html>
   );

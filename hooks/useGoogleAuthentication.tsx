@@ -1,5 +1,6 @@
 import { delay } from '@/utils';
 import { useGoogleLogin } from '@react-oauth/google';
+import axios from 'axios';
 import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 
@@ -14,26 +15,16 @@ const useGoogleAuthentication = () => {
         setError({ error: false, message: "" });
         try {
             setLoading(true);
-            let response = await fetch("http://localhost:8000/user/google-login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(user),
-                credentials: "include"
-            });
-            let data = await response.json();
+            let response = await axios.post('http://localhost:8000/user/google-login', user, { withCredentials: true })
 
-            if (!response.ok) {
-                toast.error(data.message);
-                setError({ error: true, message: data.message });
-                return;
-            }
 
-            if (data.success) {
-                toast.success(data.message);
-                await delay(1000);
-                window.location.href = "/";
+
+
+
+            if (response.data.success) {
+                toast.success(response.data.message);
+                // await delay(1000);
+                // window.location.href = "/";
             }
 
         } catch (error) {

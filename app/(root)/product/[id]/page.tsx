@@ -1,4 +1,6 @@
 import AddTocartButton from '@/components/productDetails-components/AddTocartButton';
+import ProductReviews from '@/components/productDetails-components/ProductReviews';
+import RatingForm from '@/components/productDetails-components/RatingForm';
 import { delay, formatePrice } from '@/utils';
 import axios from 'axios';
 import { Metadata } from 'next';
@@ -154,70 +156,11 @@ const SingleProduct = async ({ params }: { params: any }) => {
                 </div>
             </div>
             {/* Reviews Section */}
-            <div className="mt-8 border-t border-gray-800 pt-4">
-                <h3 className="text-xl text-white font-medium mb-4">Customer Reviews</h3>
-                {/* Review components or list */}
-                {/* Example review item */}
-                <div className='flex items-start gap-8 md:flex-row flex-col '>
-                    <div className='flex-1'>
-                        <div className="flex items-start mb-6">
-                            <div className="flex-shrink-0">
-                                <img
-                                    className="w-12 h-12 rounded-full object-cover object-center"
-                                    src="https://randomuser.me/api/portraits/women/17.jpg"
-                                    alt="Reviewer"
-                                />
-                            </div>
-                            <div className="ml-3">
-                                <p className="text-white">Great product! Highly recommended.</p>
-                                <p className="text-gray-400">- Jane Doe</p>
-                            </div>
-                        </div>
-                        <div className="flex items-start mb-6 ">
-                            <div className="flex-shrink-0">
-                                <img
-                                    className="w-12 h-12 rounded-full object-cover object-center"
-                                    src="https://randomuser.me/api/portraits/women/17.jpg"
-                                    alt="Reviewer"
-                                />
-                            </div>
-                            <div className="ml-3">
-                                <p className="text-white">Great product! Highly recommended.</p>
-                                <p className="text-gray-400">- Jane Doe</p>
-                            </div>
-                        </div>      <div className="flex items-start mb-6">
-                            <div className="flex-shrink-0">
-                                <img
-                                    className="w-12 h-12 rounded-full object-cover object-center"
-                                    src="https://randomuser.me/api/portraits/women/17.jpg"
-                                    alt="Reviewer"
-                                />
-                            </div>
-                            <div className="ml-3">
-                                <p className="text-white">Great product! Highly recommended.</p>
-                                <p className="text-gray-400">- Jane Doe</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='flex-1 md:px-8 px-4 '>
-                        <h4 className="text-white font-medium text-2xl mb-4">Write a Review</h4>
-                        <form>
-                            <div className="flex flex-col items-start gap-3">
-                                <label htmlFor="rating" className="sr-only">Rating</label>
-                                <input
-                                    type="text"
-                                    id="rating"
-                                    name="comment"
-                                    placeholder='Below is a review...'
-                                    className="appearance-none  border border-gray-800 p-3 bg-zinc-900 w-full  text-gray-400 rounded-md focus:outline-none focus:ring-indigo-500"
-                                />
-                                <button className='p-3 bg-blue-600 rounded-md capitalize'>add review</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                {/* Repeat for each review */}
+
+            <div className='py-10 border-t border-zinc-800 mt-5'>
+                <ProductReviews reviews={apiResponse.reviews} />
             </div>
+
         </section>
 
     )

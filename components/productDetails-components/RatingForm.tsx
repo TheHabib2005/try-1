@@ -13,14 +13,14 @@ const RatingForm = () => {
 
                 <div className='w-full'>
                     <label htmlFor="email" className='text-zinc-700 dark:text-white text-lg mb-3 inline-flex font-semibold'>Email *</label>
-                    <input type="text" name='email' id='email' className='p-3 w-full outline-none  rounded-md' placeholder='Example@gmail.com' />
+                    <input type="text" name='email' id='email' className='p-3 w-full outline-none  rounded-md bg-zinc-900' placeholder='Example@gmail.com' />
                 </div>
                 <div className='w-full mt-3'>
                     <label htmlFor="email" className='text-zinc-700 dark:text-white text-lg mb-3 inline-flex font-semibold'>Your Review *</label>
 
-                    <textarea name='email' id='email' className='p-3 w-full h-[150px] outline-none  rounded-md' placeholder='This is Nice Product!' ></textarea>
+                    <textarea name='email' id='email' className='p-3 w-full h-[150px] outline-none  rounded-md bg-zinc-900' placeholder='This is Nice Product!' ></textarea>
                 </div>
-                <select name="rating-star" id="rating-star" className='p-3 rounded-md cursor-pointer outline-none'>
+                <select name="rating-star" id="rating-star" className='p-3 rounded-md cursor-pointer outline-none bg-zinc-900'>
                     <option value="5">5 Star</option>
                     <option value="4">4 Star</option>
                     <option value="3">3 Star</option>

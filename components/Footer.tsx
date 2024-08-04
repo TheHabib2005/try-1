@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 const Footer = () => {
     return (
-        <footer className=" bg-[#000] border-t-[1px] border-solid border-zinc-900 ">
+        <footer className=" bg-[#000] border-t-[1px] border-solid border-zinc-900  mt-6">
             <div className="footer-container">
                 <div className=" py-[80px] max-[767px]:py-[60px]">
                     <div className="flex flex-wrap justify-between items-center  ">
@@ -19,7 +19,7 @@ const Footer = () => {
                                 <div className="flex flex-col ">
                                     <Link href={"/"} title='myshopbd.com'>
                                         <img
-                                            src="/myshopbd-light.png"
+                                            src="/logo.png"
                                             className="max-w-[200px] max-[767px]:max-w-[170px]  mb-[10px]"
                                             alt="footer logo"
                                         />
@@ -42,7 +42,7 @@ const Footer = () => {
                             >
                                 <div className="gi-footer-widget">
                                     <h4 className="gi-footer-heading text-[18px] font-medium mb-[20px] text-zinc-300 leading-[1.2] tracking-[0] relative block w-full pb-[15px] capitalize font-Poppins border-b-[1px] border-solid border-black max-[991px]:mb-[20px] max-[991px]:text-[14px]">
-                                        Category
+                                        Brands
                                         <div className="gi-heading-res">
                                             <i className="fi-rr-angle-small-down" aria-hidden="true" />
                                         </div>
@@ -54,15 +54,14 @@ const Footer = () => {
                                                     href="shop-left-sidebar-col-3.html"
                                                     className="transition-all duration-[0.3s] ease-in-out text-[14px] leading-[20px] p-[0] text-[#777] mb-[0] inline-block relative break-all tracking-[0] font-normal hover:text-[#5caf90] hover:opacity-[1]"
                                                 >
-                                                    Dairy &amp; Milk
+                                                    Bata &amp; Slide
                                                 </a>
                                             </li>
                                             <li className="gi-footer-link m-[0] leading-[1.5] border-[0] p-[0] font-normal text-[16px] text-[#5caf90] flex items-center mb-[16px]">
                                                 <a
                                                     href="shop-banner-left-sidebar-col-3.html"
                                                     className="transition-all duration-[0.3s] ease-in-out text-[14px] leading-[20px] p-[0] text-[#777] mb-[0] inline-block relative break-all tracking-[0] font-normal hover:text-[#5caf90] hover:opacity-[1]"
-                                                >
-                                                    Snack &amp; Spice
+                                                >Adidas
                                                 </a>
                                             </li>
                                             <li className="gi-footer-link m-[0] leading-[1.5] border-[0] p-[0] font-normal text-[16px] text-[#5caf90] flex items-center mb-[16px]">
@@ -70,7 +69,7 @@ const Footer = () => {
                                                     href="shop-full-width-col-5.html"
                                                     className="transition-all duration-[0.3s] ease-in-out text-[14px] leading-[20px] p-[0] text-[#777] mb-[0] inline-block relative break-all tracking-[0] font-normal hover:text-[#5caf90] hover:opacity-[1]"
                                                 >
-                                                    Fast Food
+                                                    StepFootwear
                                                 </a>
                                             </li>
                                             <li className="gi-footer-link m-[0] leading-[1.5] border-[0] p-[0] font-normal text-[16px] text-[#5caf90] flex items-center mb-[16px]">
@@ -78,25 +77,10 @@ const Footer = () => {
                                                     href="shop-list-left-sidebar.html"
                                                     className="transition-all duration-[0.3s] ease-in-out text-[14px] leading-[20px] p-[0] text-[#777] mb-[0] inline-block relative break-all tracking-[0] font-normal hover:text-[#5caf90] hover:opacity-[1]"
                                                 >
-                                                    Juice &amp; Drinks
+                                                    Nike
                                                 </a>
                                             </li>
-                                            <li className="gi-footer-link m-[0] leading-[1.5] border-[0] p-[0] font-normal text-[16px] text-[#5caf90] flex items-center mb-[16px]">
-                                                <a
-                                                    href="shop-list-full-col-2.html"
-                                                    className="transition-all duration-[0.3s] ease-in-out text-[14px] leading-[20px] p-[0] text-[#777] mb-[0] inline-block relative break-all tracking-[0] font-normal hover:text-[#5caf90] hover:opacity-[1]"
-                                                >
-                                                    Bakery
-                                                </a>
-                                            </li>
-                                            <li className="gi-footer-link m-[0] leading-[1.5] border-[0] p-[0] font-normal text-[16px] text-[#5caf90] flex items-center">
-                                                <a
-                                                    href="shop-banner-right-sidebar-col-4.html"
-                                                    className="transition-all duration-[0.3s] ease-in-out text-[14px] leading-[20px] p-[0] text-[#777] mb-[0] inline-block relative break-all tracking-[0] font-normal hover:text-[#5caf90] hover:opacity-[1]"
-                                                >
-                                                    Seafood
-                                                </a>
-                                            </li>
+
                                         </ul>
                                     </div>
                                 </div>
@@ -149,23 +133,16 @@ const Footer = () => {
                                                     href="#"
                                                     className="transition-all duration-[0.3s] ease-in-out text-[14px] leading-[20px] p-[0] text-[#777] mb-[0] inline-block relative break-all tracking-[0] font-normal hover:text-[#5caf90] hover:opacity-[1]"
                                                 >
-                                                    Become a Vendor
+                                                    Become a Seller
                                                 </a>
                                             </li>
-                                            <li className="gi-footer-link m-[0] leading-[1.5] border-[0] p-[0] font-normal text-[16px] text-[#5caf90] flex items-center mb-[16px]">
-                                                <a
-                                                    href="#"
-                                                    className="transition-all duration-[0.3s] ease-in-out text-[14px] leading-[20px] p-[0] text-[#777] mb-[0] inline-block relative break-all tracking-[0] font-normal hover:text-[#5caf90] hover:opacity-[1]"
-                                                >
-                                                    Affiliate Program
-                                                </a>
-                                            </li>
+
                                             <li className="gi-footer-link m-[0] leading-[1.5] border-[0] p-[0] font-normal text-[16px] text-[#5caf90] flex items-center">
                                                 <a
-                                                    href="checkout.html"
+                                                    href="/habib"
                                                     className="transition-all duration-[0.3s] ease-in-out text-[14px] leading-[20px] p-[0] text-[#777] mb-[0] inline-block relative break-all tracking-[0] font-normal hover:text-[#5caf90] hover:opacity-[1]"
                                                 >
-                                                    Payments
+                                                    About Creator
                                                 </a>
                                             </li>
                                         </ul>
@@ -207,7 +184,7 @@ const Footer = () => {
                                                         href="tel:+009876543210"
                                                         className="transition-all duration-[0.3s] ease-in-out text-[14px] leading-[20px] p-[0] text-[#777] mb-[0] inline-block relative break-all tracking-[0] font-normal hover:text-[#5caf90] hover:opacity-[1]"
                                                     >
-                                                        +00 9876543210
+                                                        01805746821
                                                     </a>
                                                 </li>
                                                 <li className="gi-footer-link gi-foo-mail m-[0] leading-[1.5] border-[0] p-[0] font-normal text-[16px] text-[#5caf90] flex items-center mb-[16px]">
@@ -215,10 +192,10 @@ const Footer = () => {
                                                         <AiOutlineMail />
                                                     </span>
                                                     <a
-                                                        href="mailto:example@email.com"
+                                                        href="mdwear2005@email.com"
                                                         className="transition-all duration-[0.3s] ease-in-out text-[14px] leading-[20px] p-[0] text-[#777] mb-[0] inline-block relative break-all tracking-[0] font-normal hover:text-[#5caf90] hover:opacity-[1]"
                                                     >
-                                                        example@email.com
+                                                        mdwear2005@email.com
                                                     </a>
                                                 </li>
                                             </ul>

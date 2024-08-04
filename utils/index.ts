@@ -52,3 +52,16 @@ export const fetchProduct = async (query: any) => {
   let result = await response.json();
   return result;
 };
+
+export const formateDate = (unreadedDate: string) => {
+  const isoDate = unreadedDate;
+  const date = new Date(isoDate);
+
+  const formattedDate = date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+  return formattedDate;
+};

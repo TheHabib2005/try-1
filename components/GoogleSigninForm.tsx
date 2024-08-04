@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import GoogleLoginButton from './GoogleLoginButton'
 import logo from "../public/logo-icon.png"
+import Login from './Btn'
 const GoogleSigninForm = () => {
     return (
         <main className='w-full h-screen flex items-center  p-4'>
@@ -23,6 +24,7 @@ const GoogleSigninForm = () => {
                     {/* <p className='text-gray-300 font-semibold text-lg'> Don&apos;t have an account? <Link href={"/sign-up"} className='text-blue-600'>Sign Up</Link></p> */}
                 </div>
             </div>
+            <Login />
         </main>
     )
 }

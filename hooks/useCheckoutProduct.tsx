@@ -6,12 +6,16 @@ import { Span } from "next/dist/trace";
 import { checkoutFormSchema } from "@/helpers/yup-Schema";
 import { delay } from "@/utils";
 import toast from "react-hot-toast";
+import { cookies } from "next/headers";
+import useGetUser from "./useGetUser";
 
 const useCheckoutProduct = () => {
+
+    const { userData } = useGetUser()
     const { cart, totalAmount, clearCart } = useCartStore();
     const [loading, setLoading] = useState(false)
     const [placeOrder, setPlaceOrder] = useState(false)
-
+    let orderId = Math.round(Math.random() * 10000).toString()
     const { handleChange, handleSubmit, errors, values, touched, handleBlur } = useFormik({
         initialValues: {
             contact: '',
@@ -23,8 +27,9 @@ const useCheckoutProduct = () => {
             try {
                 setLoading(true)
                 let orderPayload = {
-                    userId: "66ae33cf86f7df652eec97a3",
-                    product:
+                    userId: userData._id,
+                    orderId,
+                    products:
                         cart.map((item) => {
                             return {
                                 productId: item._id,
@@ -44,17 +49,14 @@ const useCheckoutProduct = () => {
                         username: values.username,
                     }
                 }
-                // const response = await axios.post('https://mern-24.onrender.com/order/create', orderPayload);
-                // console.log(response);
+                const response = await axios.post('http://localhost:8000/order/create', orderPayload);
+
+                if (response.data.success) {
+                    toast.success("Order placed successfully");
+                }
 
 
-                // simulate delay to mimic real API call
-                await delay(3000)
-
-                toast.success("Order placed successfully");
-
-
-                window.location.href = `/confirm-order?${orderPayload.userId}`
+                // window.location.href = `/confirm-order?${orderPayload.userId}`
                 clearCart()
 
             } catch (error) {
