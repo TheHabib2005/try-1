@@ -28,11 +28,11 @@ const LazyImage = ({
                     <img
                         src={src}
                         alt="product.title"
-                        className=" rounded-md w-full  h-auto"
+                        className="h-48 w-full object-cover object-center"
                     />
                 ) : (
                     <div
-                        className="w-full h-[300px]"
+                        className="w-full h-48 "
                         style={{ backgroundColor: color }}
                     ></div>
                 ))}

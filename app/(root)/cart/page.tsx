@@ -24,24 +24,24 @@ const CartPage = () => {
           <a href="/products/" className="inline-flex mb-5 bg-blue-600 text-white font-semibold text-lg rounded-md p-3">Continue to Shopping</a>
         </div>
       ) : (
-        <div className="grid grid-cols-6 w-full  gap-4 ">
+        <div className=" w-full  ">
           <div className="md:col-span-4 col-span-6  bg-[#000000] rounded-md p-4  h-min">
             {/* wrapper  */}
 
             <div className="grid grid-cols-12">
-              <div className="col-span-8 text-center pb-3">
+              <div className="md:col-span-8 col-span-6 text-center pb-3">
                 <span className="font-semibold text-zinc-400">PRODUCT</span>
               </div>
-              <div className="col-span-2  text-center">
+              <div className="md:col-span-2 col-span-3  text-center">
                 <span className="font-semibold text-zinc-400">PRICE</span>
               </div>
-              <div className="col-span-2  text-center">
+              <div className="md:col-span-2 col-span-3 text-center">
                 <span className="font-semibold text-zinc-400">QUANTITY</span>
               </div>
             </div>
             <CartItemWrapper />
           </div>
-          <div className="md:col-span-2 col-span-6 h-min bg-black rounded-md p-6">
+          <div className="  h-min bg-zinc-950 rounded-md p-6 mt-5 w-[400px] ml-auto">
             <div>
               <h1 className="text-xl text-zinc-400">Cart Totals</h1>
             </div>
@@ -60,7 +60,7 @@ const CartPage = () => {
                 {formatePrice(totalAmount + 100)}.00 BDT
               </span>
             </div>
-            <Link href={"/checkout"} className="p-2 text-center w-full rounded-md bg-blue-600 cursor-pointer mt-3 inline-flex">
+            <Link href={"/checkout"} className="p-2 text-center w-full rounded-md bg-blue-600 cursor-pointer mt-3 inline-block">
               Proceed To Checkout
             </Link>
           </div>

@@ -19,12 +19,9 @@ export const signinFormValidateSchema = object({
     .trim(),
 });
 
-export const productInputSchema = object({
-  product_name: string().required("product name must be required"),
+export const checkoutFormSchema = object({
+  username: string().required(" username must be required"),
 
-  product_brand: string().required("product brand must be required"),
-  product_category: string().required("product category must be required"),
-  product_image: string().required("product image must be required"),
-
-  product_price: string().required("product price must be required"),
+  contact: string().required("phone or email must be required"),
+  address: string().required("delivery address must be required"),
 });

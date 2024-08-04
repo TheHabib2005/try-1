@@ -10,9 +10,9 @@ const CartItemWrapper = () => {
     return (
         <>
             {
-                cart.length > 0 ? cart.map((item) => {
+                cart.length > 0 ? cart.map((product) => {
                     return (
-                        <CartItem key={item.id} item={item} />
+                        <CartItem key={product.id} product={product} />
                     )
                 }) : <div>
                     <div className='text-white font-semibold'>

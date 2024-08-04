@@ -5,18 +5,18 @@ import React from 'react'
 import { formatePrice } from '@/utils';
 import UpdateCartButton from './UpdateCartButton';
 
-const CartItem = ({ item }: { item: any }) => {
+const CartItem = ({ product }: { product: any }) => {
 
 
 
 
     return (
         <div className="grid grid-cols-12 py-3 border-t border-neutral-800 items-center">
-            <div className="col-span-8 text-center flex items-center gap-6">
+            <div className="md:col-span-8 col-span-6 text-center flex items-center gap-6">
                 <UpdateCartButton
                     className="" disabled={false}
                     action='REMOVE_ITEM'
-                    payload={item._id}
+                    payload={product._id}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -33,34 +33,36 @@ const CartItem = ({ item }: { item: any }) => {
                         />
                     </svg>
                 </UpdateCartButton>
-                <div>
-                    <img
-                        src={item.thumbnail}
-                        className="w-[70px]"
-                        alt=""
-                    />
-                </div>
-                <div className='flex flex-col items-start justify-start'>
-                    <Link href={"/"} className="text-left text-lg font-semibold text-zinc-400">
-                        {item.title}
+                <div className='md:flex md:flex-row flex-col'>
+                    <div>
+                        <img
+                            src={product.thumbnail}
+                            className="w-[70px]"
+                            alt=""
+                        />
+                    </div>
+                    <div className='flex flex-col items-start justify-start'>
+                        <Link href={`/product/${product._id}`} className="text-left text-lg font-semibold text-zinc-400">
+                            {product.title}
 
 
-                    </Link>
-                    <button className='text-bold text-zinc-300 mt-1 text-lg opacity-70 hover:opacity-100'>{item.brand}</button>
+                        </Link>
+                        <button className='text-bold text-zinc-300 mt-1 text-lg opacity-70 hover:opacity-100'>{product.brand}</button>
+                    </div>
                 </div>
             </div>
-            <div className="col-span-2  text-center">
+            <div className="md:col-span-2 col-span-3 text-center">
                 <span className='text-lg font-semibold text-zinc-400'>
-                    Tk {formatePrice(item.price)}.00 </span>
+                    Tk {formatePrice(product.price)}.00 </span>
             </div>
-            <div className="col-span-2  text-center">
+            <div className="md:col-span-2 col-span-3  text-center">
                 <div className="w-full flex items-center justify-center gap-2">
 
 
                     <UpdateCartButton
-                        className="w-9 h-9  rounded-md bg-zinc-900 flex items-center justify-center" disabled={item.quantity > 1 ? false : true}
+                        className="w-9 h-9  rounded-md bg-zinc-900 flex items-center justify-center" disabled={product.quantity > 1 ? false : true}
                         action='DECREMENT_QUANTITY'
-                        payload={item._id}
+                        payload={product._id}
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -80,11 +82,11 @@ const CartItem = ({ item }: { item: any }) => {
                         </svg>
                     </UpdateCartButton>
 
-                    <span className="text-xl text-zinc-400">{item.quantity}</span>
+                    <span className="text-xl text-zinc-400">{product.quantity}</span>
                     <UpdateCartButton
                         className="w-9 h-9  rounded-md bg-zinc-900 flex items-center justify-center" disabled={false}
                         action='INCREMENT_QUANTITY'
-                        payload={item._id}
+                        payload={product._id}
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"

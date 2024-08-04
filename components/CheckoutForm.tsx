@@ -1,11 +1,20 @@
 import { useCartStore } from "@/zustant-store/useCartStore";
 import axios from "axios";
+import { useFormik } from "formik";
 import React from "react";
+import InputFeild from "./InputFeild";
+import { Span } from "next/dist/trace";
+import { checkoutFormSchema } from "@/helpers/yup-Schema";
+import useCheckoutProduct from "@/hooks/useCheckoutProduct";
+import Loader from "./Loader";
 
 const CheckoutForm = () => {
-    const { cart, totalAmount } = useCartStore()
+    const { handleChange, handleSubmit, errors, values, touched, handleBlur, loading, placeOrder } = useCheckoutProduct()
+
+
     return (
-        <div className="col-span-4  p-6 max-w-full ">
+        <form className="col-span-4  p-6 max-w-full " onSubmit={handleSubmit}>
+            {loading && <Loader />}
             <h1 className="text-2xl my-5 text-white font-semibold  text-center">
                 Checkout Form
             </h1>
@@ -18,8 +27,14 @@ const CheckoutForm = () => {
                     <input
                         type="text"
                         className="w-full p-3 bg-transparent outline-0 border border-zinc-800 rounded-md focus:border-blue-800 text-white"
+                        name="contact"
+                        onChange={handleChange}
+                        value={values.contact}
+                        onBlur={handleBlur}
                     />
+                    {errors.contact && touched.contact && <span className="text-red-500 capitalize font-semibold mt-2 inline-flex">{errors.contact}</span>}
                 </div>
+
                 <div className="relative mt-4">
                     <span className="text-md text-zinc-500 mb-2 inline-flex z-10">
                         Enter your username
@@ -27,7 +42,12 @@ const CheckoutForm = () => {
                     <input
                         type="text"
                         className="w-full p-3 bg-transparent outline-0 border border-zinc-800 rounded-md focus:border-blue-800 text-white"
+                        name="username"
+                        onChange={handleChange}
+                        value={values.username}
+                        onBlur={handleBlur}
                     />
+                    {errors.username && touched.username && <span className="text-red-500 capitalize font-semibold mt-2 inline-flex">{errors.username}</span>}
                 </div>
             </div>
             <div className="mt-8">
@@ -43,7 +63,12 @@ const CheckoutForm = () => {
                         type="text"
                         className="w-full p-3 bg-transparent outline-0 border border-zinc-800 rounded-md focus:border-blue-800 text-white"
                         placeholder="area-state-country"
+                        name="address"
+                        onChange={handleChange}
+                        value={values.address}
+                        onBlur={handleBlur}
                     />
+                    {errors.address && touched.address && <span className="text-red-500 capitalize font-semibold mt-2 inline-flex">{errors.address}</span>}
                 </div>
 
                 <div className="relative mt-4">
@@ -65,44 +90,11 @@ const CheckoutForm = () => {
 
                 <button
                     className="w-full mt-10 p-4 cursor-pointer rounded-md bg-blue-700 hover:bg-blue-900 text-white font-semibold"
-                    onClick={async () => {
-                        let product = {
-                            userId: "66ae33cf86f7df652eec97a3",
-                            productId: "123456r",
-                            product:
-
-                                cart.map((item) => {
-                                    return {
-                                        title: item.title,
-                                        price: item.price,
-                                        thumbnail: item.thumbnail,
-                                        quantity: item.quantity,
-                                    }
-                                })
-
-
-                            ,
-                            totalAmount: totalAmount,
-                            paymentMethod: "cod",
-                            orderStatus: "prossesing",
-                            deliveryAddress: "signboard",
-                        };
-
-
-                        try {
-                            let res = await axios.post("http://localhost:8000/order/create", product)
-                            console.log(res.data);
-                        } catch (error) {
-                            console.log(error);
-
-                        }
-
-                    }}
                 >
                     Place Order
                 </button>
             </div>
-        </div>
+        </form>
     );
 };
 

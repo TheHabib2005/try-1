@@ -1,9 +1,11 @@
+import useCheckoutProduct from '@/hooks/useCheckoutProduct'
 import { useCartStore } from '@/zustant-store/useCartStore'
 import Link from 'next/link'
 import React from 'react'
 
 const CheckoutOrderDetails = () => {
     const { cart, totalAmount } = useCartStore()
+    const { placeOrder } = useCheckoutProduct()
     return (
         <div className="col-span-3  border-l border-zinc-700 lg:pt-5 pt-10 px-5 max-w-full">
             <h1 className="text-2xl my-5 text-white font-semibold  text-center">

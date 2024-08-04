@@ -17,6 +17,7 @@ interface CartItemType {
   totalAmount: number;
   ProductaddToCart: (product: any) => void;
   removeFromCart: (id: string) => void;
+  clearCart: () => void;
   incrementQuantity: (id: string) => void;
   decrementQuantity: (id: string) => void;
 }
@@ -106,6 +107,10 @@ export const useCartStore = create<CartItemType>()(
               0
             ),
           });
+        },
+        clearCart: () => {
+          set({ cart: [] });
+          set({ totalAmount: 0 });
         },
       }),
       {

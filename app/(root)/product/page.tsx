@@ -1,4 +1,5 @@
 
+import LazyImage from '@/components/LazyImage';
 import { calculateDiscountedPrice, delay, formatePrice } from '@/utils';
 import axios from 'axios';
 import { Metadata } from 'next';
@@ -15,7 +16,7 @@ const Product = async () => {
         let data = await res.json()
         return data;
     };
-
+    let color = `#${Math.random().toString(16).substring(2, 8)}`;
 
 
 
@@ -24,13 +25,16 @@ const Product = async () => {
         <div className='grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-3 w-full'>
             {
                 apiResponse.map((prod: any, index: number) => {
-                    return <Link href={`/product/${prod._id}`} key={index}>
+                    return <a href={`/product/${prod._id}`} key={index}>
                         <div className="mx-auto mt-3 w-80 transform overflow-hidden rounded-lg bg-white dark:bg-zinc-900/70 shadow-md duration-300 hover:scale-105 hover:shadow-lg">
-                            <img
-                                className="h-48 w-full object-cover object-center"
-                                src={prod.thumbnail}
-                                alt="Product Image"
-                            />
+
+                            <div className='h-48 w-full' >
+                                <img
+                                    className="h-48 w-full object-cover object-center"
+                                    src={prod.thumbnail}
+                                    alt="Product Image"
+                                />
+                            </div>
                             <div className="p-4">
                                 <h2 className="mb-2 text-lg font-medium dark:text-white text-gray-900">
                                     {prod.title}
@@ -52,7 +56,7 @@ const Product = async () => {
                             </div>
                         </div>
 
-                    </Link>
+                    </a>
                 })
             }
         </div>
