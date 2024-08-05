@@ -20,9 +20,6 @@ const GoogleSigninForm = () => {
                     <p className='text-lg font-semibold text-gray-400'>welcome back! please sign in continue</p>
                 </div>
                 <GoogleLoginButton />
-                <div>
-                    {/* <p className='text-gray-300 font-semibold text-lg'> Don&apos;t have an account? <Link href={"/sign-up"} className='text-blue-600'>Sign Up</Link></p> */}
-                </div>
             </div>
             <Login />
         </main>

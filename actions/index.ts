@@ -42,3 +42,40 @@ export const getUser = async () => {
     userData,
   };
 };
+
+export const getSearchResult = async (q) => {
+  try {
+    let { data } = await axios.get(
+      `https://mern-24.onrender.com/products/search/${q}`
+    );
+    return {
+      success: true,
+      message: "search result fetch successfully",
+      data,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      message: "Network Error",
+      data: [],
+    };
+  }
+};
+
+export const fetchProduct = async () => {
+  try {
+    let res = await fetch(`http://localhost:8000/products/all`);
+    let data = await res.json();
+    return {
+      success: true,
+      message: "product fetch successfully",
+      product: data,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      message: "network error",
+      product: [],
+    };
+  }
+};

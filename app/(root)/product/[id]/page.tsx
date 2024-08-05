@@ -23,8 +23,8 @@ const SingleProduct = async ({ params }: { params: any }) => {
         let data = await res.json()
         return data;
     };
-    let apiResponse = await fetchProduct();
-    console.log(apiResponse);
+    let product = await fetchProduct();
+    console.log(product);
 
     return (
 
@@ -33,15 +33,15 @@ const SingleProduct = async ({ params }: { params: any }) => {
                 <div className="lg:w-4/5 mx-auto flex flex-wrap">
                     <img
                         alt="ecommerce"
-                        className="lg:w-1/2 w-full object-cover object-center rounded "
-                        src={apiResponse.thumbnail}
+                        className="lg:w-1/2   "
+                        src={product.thumbnail}
                     />
                     <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                         <h2 className="text-sm title-font text-zinc-300 tracking-widest">
-                            {apiResponse.brand}
+                            {product.brand}
                         </h2>
                         <h1 className="text-white text-3xl title-font font-medium mb-1">
-                            {apiResponse.title}
+                            {product.title}
                         </h1>
                         <div className="flex mb-4">
                             <span className="flex items-center">
@@ -142,14 +142,36 @@ const SingleProduct = async ({ params }: { params: any }) => {
                             </span>
                         </div>
                         <p className="leading-relaxed">
-                            {apiResponse.description}
+                            {product.description}
                         </p>
+                        <ul className='mt-5'>
+                            {
+                                product.features.map((feature: string, index: number) => {
+                                    return (
+                                        <li key={index} className='flex items-center gap-3'>
+                                            <svg
+                                                fill="currentColor"
+                                                stroke="currentColor"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={2}
+                                                className="w-5 h-5"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path d="M20.39 18.39L18 20.78V18h-8.5v-7a1 1 0 011-1h7a1 1 0 011 1v7h8.5v2.22L20.39 18.39z" />
+                                            </svg>
+                                            {feature}
+                                        </li>
+                                    )
+                                })
+                            }
+                        </ul>
 
                         <div className="flex mt-5 items-center gap-8">
                             <span className="title-font font-medium text-2xl text-white">
-                                Tk {formatePrice(apiResponse.price)}.00
+                                Tk {formatePrice(product.price)}.00
                             </span>
-                            <AddTocartButton product={{ ...apiResponse, quantity: 1 }} />
+                            <AddTocartButton product={{ ...product, quantity: 1 }} />
 
                         </div>
                     </div>
@@ -158,7 +180,7 @@ const SingleProduct = async ({ params }: { params: any }) => {
             {/* Reviews Section */}
 
             <div className='py-10 border-t border-zinc-800 mt-5'>
-                <ProductReviews reviews={apiResponse.reviews} />
+                <ProductReviews reviews={product.reviews} />
             </div>
 
         </section>

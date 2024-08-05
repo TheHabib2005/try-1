@@ -28,7 +28,7 @@ const MyOrders = async () => {
                             My orders
                         </h2>
                     </div>
-                    <div className="mt-5 flow-root sm:mt-3  px-2">
+                    <div className="mt-5 flex flex-col gap-y-3 sm:mt-3  px-2">
                         {
                             orders.map((order: any) => {
                                 return <div className="divide-y divide-gray-200 border border-zinc-900 px-4  dark:divide-gray-700" key={order._id}>

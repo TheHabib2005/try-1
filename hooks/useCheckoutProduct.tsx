@@ -53,10 +53,11 @@ const useCheckoutProduct = () => {
 
                 if (response.data.success) {
                     toast.success("Order placed successfully");
+                    window.location.href = `/checkout/order-received/${orderPayload.orderId}`
                 }
 
 
-                // window.location.href = `/confirm-order?${orderPayload.userId}`
+
                 clearCart()
 
             } catch (error) {

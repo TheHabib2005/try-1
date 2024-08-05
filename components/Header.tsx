@@ -20,8 +20,6 @@ const Header = ({ children }: { children: ReactNode }) => {
     const { userData } = useGetUser()
 
 
-    console.log(userData);
-
 
     return (
         <header className='py-6'>

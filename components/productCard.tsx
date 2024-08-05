@@ -1,74 +1,41 @@
-"use client"
 import { calculateDiscountedPrice, formatePrice } from '@/utils'
-import { IoMdStar, IoMdStarHalf } from "react-icons/io"
-import LazyImage from './LazyImage'
+import Link from 'next/link'
+import React from 'react'
 
-const ProductCard = ({ product, index }: {
-    product: any
-    index: number
-}) => {
-    let number = 1900;
-    let formattedNumber = number.toLocaleString('en-US', {
-        style: 'currency',
-        currency: 'USD'
-    });
-
-    console.log(formattedNumber); // Outputs: $1,900.00
-
+const ProductCard = ({ product }: { product: Product }) => {
     return (
-        <>
+        <Link href={`/product/${product._id}`} key={product._id}>
+            <div className="mx-auto mt-3 w-80 transform overflow-hidden rounded-lg bg-white dark:bg-zinc-900/70 shadow-md duration-300 hover:scale-105 hover:shadow-lg">
 
-            <div className="relative  flex  flex-col overflow-hidden rounded-lg  min-w-full  dark:bg-zinc-900/70 shadow-md mx-auto cursor-pointer col-span-1 hover:bg-zinc-800 hover:scale-105 hover:transition-transform duration-200 group p-2 h-min" onClick={() => {
-                localStorage.setItem("product-details", JSON.stringify(product))
-                window.open(`/products/smartphone/${product._id}`)
-            }} >
-                <div
-                    className="relative  overflow-hidden  flex  rounded-xl cursor-pointer justify-center items-start    "
-                >
-                    <div className='w-full   overflow-hidden h-[300px]'>
-                        <LazyImage src={product.thumbnail} />
-                    </div>
-                    <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium  text-white">
-                        {Math.round(product.discountPercentage)}% OFF
-                    </span>
+                <div className='h-48 w-full' >
+                    <img
+                        className="h-48 w-full object-cover object-center"
+                        src={product.thumbnail}
+                        alt="productuct Image"
+                    />
                 </div>
-                <div className="mt-4 px-5 ">
-                    <a href="#">
-                        <h5 className="text-xl tracking-tight  text-zinc-800 dark:text-white  group-hover:text-blue-600">
-                            {product.title}
-                            {product.title.length > 30 && <span className="ml-5  text-zinc-800 dark:text-white">{"..."}</span>}
-                        </h5>
-                    </a>
-                    <div className="mt-2 mb-3">
-                        <p>
-                            <span className="text-2xl font-bold  text-zinc-800 dark:text-white ">
-                                {formatePrice(product.price)}
+                <div className="p-4">
+                    <h2 className="mb-2 text-lg font-medium dark:text-white text-gray-900">
+                        {product.title}
+                    </h2>
+                    <p className="mb-2 text-base dark:text-gray-300 text-gray-700">
+                        {product.description.slice(0, 70)}...
+                    </p>
+                    <div className="flex items-center">
+                        <p className="mr-2 text-lg font-semibold text-gray-900 dark:text-white">
+                            Tk {formatePrice(Number(calculateDiscountedPrice(product.price, product.discountPercentage).toFixed(0)))}.00
 
-                            </span>
-                            <span className="text-sm ml-2 text-zinc-800 dark:text-white  line-through">
-                                {formatePrice(product.price)}
-                            </span>
+
                         </p>
-                        <div className="flex items-center">
-                            {
-                                Array(5).fill("").map((_, i) => {
-                                    if (i < Math.round(5)) {
-                                        return <IoMdStar color="yellow" fontSize={20} key={i} />
-                                    } else {
-                                        return <IoMdStarHalf color="yellow" fontSize={20} key={i} />
-                                    }
-                                })
-                            }
-                            <span className="mr-2 ml-3 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold text-black">
-                                {5}
-                            </span>
-                        </div>
+                        <p className="text-base  font-medium text-gray-500 line-through dark:text-gray-300">
+                            Tk {formatePrice(product.price)}.00
+                        </p>
+                        <p className="ml-auto text-base font-medium text-green-500">{product.discountPercentage}% off</p>
                     </div>
-
                 </div>
-
             </div>
-        </>
+
+        </Link>
     )
 }
 
