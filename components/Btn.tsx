@@ -4,10 +4,7 @@ import axios from 'axios';
 export default function Login() {
     const handleLogin = async () => {
         try {
-            const response = await fetch('http://localhost:3000/api/set-cookie', {
-                credentials: "include",
-                mode: "cors"
-            });
+            const response = await fetch('/api/set-cookie');
             console.log(await response.json());
 
         } catch (error) {
