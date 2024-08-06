@@ -1,3 +1,5 @@
+import Jwt from "jsonwebtoken";
+
 export const delay = async (time: number) =>
   new Promise((resolve) => setTimeout(resolve, time));
 
@@ -39,20 +41,6 @@ export const formatePrice = (price: number): string => {
   return formattedNumber;
 };
 
-export const fetchProduct = async (query: any) => {
-  let response = await fetch(`https://mern-24.onrender.com/products/data`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ query }),
-    credentials: "include",
-    cache: "force-cache",
-  });
-  let result = await response.json();
-  return result;
-};
-
 export const formateDate = (unreadedDate: string) => {
   const isoDate = unreadedDate;
   const date = new Date(isoDate);
@@ -64,4 +52,10 @@ export const formateDate = (unreadedDate: string) => {
   });
 
   return formattedDate;
+};
+
+export const generateToken = async (userData: any) => {
+  return await Jwt.sign({ userData }, process.env.JWT_SECRET!, {
+    expiresIn: "1h",
+  });
 };

@@ -108,7 +108,7 @@ export default function Home() {
           <h1 className="text-zinc-800 dark:text-white font-semibold text-2xl">Browse By Category</h1>
         </div>
         <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 lg:py-10 py-5">
-          <a href="/products/smartphone">
+          <a href="/product">
             <div className="w-full h-[200px] py-5 dark:bg-zinc-950 rounded-md flex flex-col gap-5 items-center justify-center">
               <img
                 alt="image"
@@ -126,7 +126,7 @@ export default function Home() {
               </p>
             </div>
           </a>
-          <Link href="/products/laptop">
+          <Link href="/product">
             <div className="w-full h-[200px] py-5 bg-zinc-950 rounded-md flex flex-col gap-5 items-center justify-center">
               <img
                 alt="image"
@@ -219,7 +219,6 @@ export default function Home() {
         </div>
 
       </section>
-      <Login />
     </>
 
   );

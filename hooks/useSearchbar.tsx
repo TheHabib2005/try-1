@@ -19,7 +19,7 @@ const useSearchbar = () => {
     const fetchSearchData = async () => {
         let query = {}
         try {
-            let response = await fetch(`https://mern-24.onrender.com/products/all`);
+            let response = await fetch(`${process.env.BACKEND_URL}/products/all`);
             let result = await response.json();
 
             setSearchData(result);

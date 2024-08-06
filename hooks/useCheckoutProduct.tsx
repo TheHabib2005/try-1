@@ -11,7 +11,9 @@ import useGetUser from "./useGetUser";
 
 const useCheckoutProduct = () => {
 
-    const { userData } = useGetUser()
+    const userData = useGetUser()
+    console.log(userData);
+
     const { cart, totalAmount, clearCart } = useCartStore();
     const [loading, setLoading] = useState(false)
     const [placeOrder, setPlaceOrder] = useState(false)
@@ -49,7 +51,7 @@ const useCheckoutProduct = () => {
                         username: values.username,
                     }
                 }
-                const response = await axios.post('http://localhost:8000/order/create', orderPayload);
+                const response = await axios.post(`${process.env.BACKEND_URL}/order/create`, orderPayload);
 
                 if (response.data.success) {
                     toast.success("Order placed successfully");

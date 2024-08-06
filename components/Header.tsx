@@ -17,7 +17,6 @@ const Header = ({ children }: { children: ReactNode }) => {
     const { isCartBarOpen, setIsCartBarOpen } = useGlobalTempState()
 
 
-    const { userData } = useGetUser()
 
 
 

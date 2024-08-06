@@ -1,3 +1,6 @@
+import { fetchProduct, getProductDetails } from '@/actions';
+import Error from '@/components/Error';
+import ProductNotFound from '@/components/Product-not-found';
 import AddTocartButton from '@/components/productDetails-components/AddTocartButton';
 import ProductReviews from '@/components/productDetails-components/ProductReviews';
 import RatingForm from '@/components/productDetails-components/RatingForm';
@@ -12,19 +15,17 @@ const SingleProduct = async ({ params }: { params: any }) => {
 
 
 
-    const fetchProduct = async () => {
-        let res = await fetch(`${process.env.API_URL}/products/${params.id}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            credentials: "include"
-        })
-        let data = await res.json()
-        return data;
-    };
-    let product = await fetchProduct();
+
+    let { product, success } = await getProductDetails(params.id);
+
+    if (!success) {
+        return <Error />
+    }
+    if (product.length === 0) {
+        return <ProductNotFound />
+    }
     console.log(product);
+
 
     return (
 
@@ -177,11 +178,12 @@ const SingleProduct = async ({ params }: { params: any }) => {
                     </div>
                 </div>
             </div>
-            {/* Reviews Section */}
+
 
             <div className='py-10 border-t border-zinc-800 mt-5'>
                 <ProductReviews reviews={product.reviews} />
             </div>
+
 
         </section>
 

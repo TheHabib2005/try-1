@@ -4,10 +4,11 @@ import React from "react";
 import { date } from "yup";
 
 const MyOrders = async () => {
-    let { userData } = await getUser();
+    let { _id } = await getUser();
 
 
-    let data = await fetchAllOrders(userData._id);
+
+    let data = await fetchAllOrders(_id);
     let { orders, success, message } = data
 
     if (!success) {

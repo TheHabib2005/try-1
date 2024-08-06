@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { MdLogout } from 'react-icons/md';
 import { types } from 'util'
 import LogoutButton from './LogoutButton';
+import Image from 'next/image';
 interface ProfilePopupProps {
     username: string;
     profilePicture: string;
@@ -27,18 +28,31 @@ const ProfilePupup: React.FC<ProfilePopupProps> = ({ username, profilePicture, e
         window.addEventListener("click", handleClickOutside);
         return () => window.removeEventListener("click", handleClickOutside);
     }, []);
+
     return (
-        <div className=' md:flex hidden items-center justify-center rounded-full dark:bg-zinc-900 dark:text-white relative'  >
-            <div className='' onClick={() => {
-                setOpenModel(!openModel)
-            }} ref={containerRef}>
-                <img src={profilePicture} alt="" className='w-10 rounded-full cursor-pointer' />
+        <div className=' md:flex hidden items-center justify-center rounded-full dark:bg-zinc-900 dark:text-white relative' onClick={() => {
+            setOpenModel(true)
+        }} ref={containerRef}  >
+            <div className=''   >
+                <Image
+                    width={40}
+                    height={40}
+                    src={profilePicture}
+                    alt='profile picture'
+                    className='rounded-full'
+
+                />
             </div>
             {openModel && <div className='absolute top-[150%] bg-zinc-900 z-50 mx-auto w-[250px]  rounded-md py-3' ref={modelRef}>
 
                 <div className='   w-full border-b p-3 border-zinc-700 gap-1'>
                     <div className='mb-3 flex items-center justify-center'>
-                        <img src={profilePicture} alt="" className='w-16 rounded-full cursor-pointer' />
+                        <Image
+                            width={50}
+                            height={50}
+                            src={profilePicture}
+                            alt='profile picture'
+                        />
                     </div>
                     <div className='text-center'>
                         <h1 className='text-md'>{username}</h1>

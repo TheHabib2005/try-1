@@ -6,9 +6,11 @@ const useGetUser = () => {
     const [userData, setUserData] = useState<any>()
 
     const getUserData = async () => {
-        const { userData } = await getUser();
+        const { _id, email, profilePicture, username } = await getUser();
 
-        setUserData(userData);
+        setUserData({ _id, email, profilePicture, username });
+
+
     };
 
     useLayoutEffect(() => {
@@ -17,7 +19,7 @@ const useGetUser = () => {
 
 
 
-    return { userData }
+    return userData
 }
 
 export default useGetUser

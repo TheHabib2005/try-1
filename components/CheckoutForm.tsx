@@ -10,8 +10,6 @@ import Loader from "./Loader";
 
 const CheckoutForm = () => {
     const { handleChange, handleSubmit, errors, values, touched, handleBlur, loading, placeOrder } = useCheckoutProduct()
-
-
     return (
         <form className="col-span-4  p-6 max-w-full " onSubmit={handleSubmit}>
             {loading && <Loader />}

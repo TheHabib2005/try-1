@@ -21,7 +21,7 @@ const GoogleSigninForm = () => {
                 </div>
                 <GoogleLoginButton />
             </div>
-            <Login />
+
         </main>
     )
 }
