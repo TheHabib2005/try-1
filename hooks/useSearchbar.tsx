@@ -1,3 +1,4 @@
+"use client"
 import React, { FormEvent, useEffect, useRef, useState } from "react";
 import { clearInterval } from "timers";
 import useDebounce from "./useDebounce";
@@ -15,11 +16,10 @@ const useSearchbar = () => {
     const inputRef = useRef<HTMLInputElement | null>(null);
     const containerRef = useRef<HTMLDivElement | null>(null);
     const [currentActiveIndex, setCurrentActiveIndex] = useState(-1)
-
     const fetchSearchData = async () => {
         let query = {}
         try {
-            let response = await fetch(`${process.env.BACKEND_URL}/products/all`);
+            let response = await fetch(`https://mern-24.onrender.com/products/all`);
             let result = await response.json();
 
             setSearchData(result);

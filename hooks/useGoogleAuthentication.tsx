@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 
 const useGoogleAuthentication = () => {
+
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState({
         error: false,

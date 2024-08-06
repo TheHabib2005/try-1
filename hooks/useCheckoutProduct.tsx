@@ -1,3 +1,4 @@
+
 import { useCartStore } from "@/zustant-store/useCartStore";
 import axios from "axios";
 import { useFormik } from "formik";
@@ -10,6 +11,7 @@ import { cookies } from "next/headers";
 import useGetUser from "./useGetUser";
 
 const useCheckoutProduct = () => {
+    console.log(process.env.BACKEND_URL!);
 
     const userData = useGetUser()
     console.log(userData);
@@ -51,22 +53,20 @@ const useCheckoutProduct = () => {
                         username: values.username,
                     }
                 }
-                const response = await axios.post(`${process.env.BACKEND_URL}/order/create`, orderPayload);
+                const response = await axios.post(`https://mern-24.onrender.com/order/create`, orderPayload);
 
                 if (response.data.success) {
                     toast.success("Order placed successfully");
                     window.location.href = `/checkout/order-received/${orderPayload.orderId}`
+                    clearCart()
+                    setLoading(true)
                 }
 
-
-
-                clearCart()
 
             } catch (error) {
                 console.error(error);
                 alert("Failed to place order");
-            } finally {
-                setLoading(false)
+                setLoading(false);
             }
         }
 
