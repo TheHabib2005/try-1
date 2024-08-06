@@ -6,9 +6,10 @@ import { ClipLoader, DotLoader, ClimbingBoxLoader, FadeLoader, ClockLoader } fro
 import Loader from '../Loader';
 import { delay } from '@/utils';
 import toast from 'react-hot-toast';
+import { saveCartData } from '@/actions';
 
 const AddTocartButton = ({ product }: { product: any }) => {
-    const { ProductaddToCart } = useCartStore();
+    const { ProductaddToCart, cart } = useCartStore();
     const [isLoading, setIsLoading] = useState(false)
 
     let payload = { ...product, quantity: 1 }
@@ -19,12 +20,9 @@ const AddTocartButton = ({ product }: { product: any }) => {
         let data = await delay(300);
         setIsLoading(false);
         toast.success("product added successfully")
+        let res = await saveCartData(cart)
+
     }
-
-    console.log(product);
-
-
-
 
     return (
         <div>

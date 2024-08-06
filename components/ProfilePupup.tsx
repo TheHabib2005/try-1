@@ -30,10 +30,10 @@ const ProfilePupup: React.FC<ProfilePopupProps> = ({ username, profilePicture, e
     }, []);
 
     return (
-        <div className=' md:flex hidden items-center justify-center rounded-full dark:bg-zinc-900 dark:text-white relative' onClick={() => {
+        <div className=' md:flex hidden items-center justify-center rounded-full dark:bg-zinc-900 dark:text-white relative ' onClick={() => {
             setOpenModel(true)
         }} ref={containerRef}  >
-            <div className=''   >
+            <div className='cursor-pointer'   >
                 <Image
                     width={40}
                     height={40}
@@ -52,21 +52,19 @@ const ProfilePupup: React.FC<ProfilePopupProps> = ({ username, profilePicture, e
                             height={50}
                             src={profilePicture}
                             alt='profile picture'
+                            className='rounded-full'
                         />
                     </div>
                     <div className='text-center'>
                         <h1 className='text-md'>{username}</h1>
                         <p className=''>{email}</p>
-                        <Link href={"/profile"} className='text-primary'>view profile</Link>
+
                     </div>
                 </div>
 
                 <div className='flex items-start flex-col p-3 gap-y-2 border-b border-zinc-700'>
                     <Link href={"/cart"} className='bg-zinc-800/30 hover:bg-zinc-800 transition-all w-full flex p-2 rounded-md'>See Cart</Link>
-                    <Link href={"/wishList"} className='bg-zinc-800/30 hover:bg-zinc-800 transition-all w-full flex p-2 rounded-md'>See WishList</Link>
                     <Link href={"/my-orders"} className='bg-zinc-800/30 hover:bg-zinc-800 transition-all w-full flex p-2 rounded-md'>My Orders</Link>
-
-
                 </div>
 
                 <div className='p-3'>

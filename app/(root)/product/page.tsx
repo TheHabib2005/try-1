@@ -1,5 +1,6 @@
 
 import { fetchProduct } from '@/actions';
+import BrandLists from '@/components/BrandLists';
 import Error from '@/components/Error';
 import LazyImage from '@/components/LazyImage';
 import ProductNotFound from '@/components/Product-not-found';
@@ -28,8 +29,13 @@ const Product = async () => {
     }
 
     return (
-        <div className='grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-3 w-full'>
-            <ShowProducts products={product} />
+        <div className='flex items-start '>
+
+            <BrandLists />
+
+            <div className='grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 py-3 w-full'>
+                <ShowProducts products={product} />
+            </div>
         </div>
     )
 }

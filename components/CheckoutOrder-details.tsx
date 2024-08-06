@@ -29,7 +29,7 @@ const CheckoutOrderDetails = () => {
                                 {prod.title}
                             </h1>
 
-                            <span className="text-lg font-semibold text-zinc-400"> ${prod.price}</span>
+                            <span className="text-lg font-semibold text-zinc-400"> Tk {prod.price * prod.quantity}.00</span>
                         </div>
                     </Link>
                 })
@@ -38,17 +38,17 @@ const CheckoutOrderDetails = () => {
                 <div className="flex items-center justify-between text-zinc-300 font-semibold">
 
                     <span>Subtotal</span>
-                    <span> ${totalAmount}</span>
+                    <span> Tk {totalAmount}.00</span>
                 </div>
                 <div className="flex items-center justify-between text-zinc-300 font-semibold">
 
                     <span>Shipping</span>
-                    <span> $9.00</span>
+                    <span> Tk 90.00</span>
                 </div>
                 <div className="flex items-center justify-between text-zinc-300 font-bold">
 
                     <span className="text-xl">Total</span>
-                    <span className="text-xl"> ${totalAmount + 9}</span>
+                    <span className="text-xl"> Tk {totalAmount + 90}</span>
                 </div>
             </div>}
         </div>

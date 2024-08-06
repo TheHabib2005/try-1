@@ -24,9 +24,7 @@ const UpdateCartButton: FC<Props> = ({ disabled, payload, className, action, chi
             case "INCREMENT_QUANTITY":
                 incrementQuantity(payload)
                 toast.success("Cart Updated Successfully")
-                setTimeout(() => {
-                    alert("data updated successfully")
-                }, 9000)
+
                 break
             case "DECREMENT_QUANTITY":
                 decrementQuantity(payload)
@@ -40,6 +38,7 @@ const UpdateCartButton: FC<Props> = ({ disabled, payload, className, action, chi
                 break;
         }
         setIsLoading(false);
+
     }
     return (
         <>

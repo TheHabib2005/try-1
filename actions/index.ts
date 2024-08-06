@@ -129,3 +129,7 @@ export const logoutUser = async () => {
     return { success: false, message: "User Logout Error" };
   }
 };
+
+export const saveCartData = async (cart) => {
+  console.log(cart);
+};

@@ -30,9 +30,10 @@ const Header = ({ children }: { children: ReactNode }) => {
                     </svg>
                 </div>
                 <div className=' w-1/3  mx-auto flex items-center '>
-                    <Link href={"/"} className=''>
+                    <Link href={"/"} >
                         <img src="/logo.png" alt="" className='w-[200px]' />
                     </Link>
+
                     <div className=' xl:flex hidden items-center ml-5 gap-4 text-zinc-700 dark:text-zinc-400'>
                     </div>
                 </div>

@@ -13,7 +13,7 @@ const CartSubtotalCard = () => {
             </div>
             <div className="flex items-center justify-between py-3 border-b border-neutral-700">
                 <span className="text-lg text-zinc-400">Subtotal </span>
-                <span className="text-lg text-blue-600 ">{formatePrice(totalAmount)}.00 BDT</span>
+                <span className="text-lg text-blue-600 ">Tk {formatePrice(totalAmount)}.00 </span>
             </div>
             <div className="flex items-center justify-between py-3 border-b border-neutral-700">
                 <span className="text-lg text-zinc-400">Shipping Cost </span>
@@ -23,7 +23,7 @@ const CartSubtotalCard = () => {
             <div className="flex items-center justify-between py-3 ">
                 <span className="text-lg text-zinc-400">Total</span>
                 <span className="text-lg text-blue-600">
-                    {formatePrice(totalAmount + 100)}.00 BDT
+                    Tk {formatePrice(totalAmount + 100)}.00
                 </span>
             </div>
             <Link href={"/checkout"} className="p-2 text-center w-full rounded-md bg-blue-600 cursor-pointer mt-3 inline-block">

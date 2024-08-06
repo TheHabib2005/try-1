@@ -18,7 +18,19 @@ const MyOrders = async () => {
             </div>
             <span className="text-zinc-400">Refress the web-page </span>
         </div>
+
     }
+
+
+    if (orders.length === 0) {
+        return <div className="text-center p-8  ">
+            <div className="text-xl">
+                No orders found.
+            </div>
+            <span className="text-zinc-400">Go to the shopping cart to add items </span>
+        </div>
+    }
+
 
     return (
         <section className="py-4 antialiased md:py-10">
@@ -70,7 +82,7 @@ const MyOrders = async () => {
                                         </dl>
                                         <div className="w-full grid sm:grid-cols-2 lg:flex lg:w-64 lg:items-center lg:justify-end gap-4">
                                             <a
-                                                href="#"
+                                                href={`/my-orders/${order.orderId}`}
                                                 className="flex items-center gap-3 p-3 bg-zinc-900 rounded-md"
                                             >
                                                 <svg
