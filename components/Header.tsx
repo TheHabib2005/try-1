@@ -35,6 +35,7 @@ const Header = ({ children }: { children: ReactNode }) => {
                     </Link>
 
                     <div className=' xl:flex hidden items-center ml-5 gap-4 text-zinc-700 dark:text-zinc-400'>
+                        <Link href={"/product"}>All Slides</Link>
                     </div>
                 </div>
 
